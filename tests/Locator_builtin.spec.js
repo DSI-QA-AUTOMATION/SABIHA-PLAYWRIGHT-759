@@ -5,27 +5,48 @@ import { waitForDebugger } from 'inspector';
 test('Built_in_Locators', async ({page})=>{
 
 
-    await page.goto('https://opensource-demo.orangehrmlive.com');
+    await page.goto('https://demoqa.com');
 
     await page.waitForTimeout(5000);
     //altText
-    const check = await page.getByAltText('orangehrm-logo');
-    //await expect(check).toBeVisible();
-    //placeholder
-    await page.getByPlaceholder('Username').fill("Admin");
-    await page.getByPlaceholder('Password').fill("admin123");
-
-    //getByRole
-    await page.getByRole('button',{type:'submit'}).click();
-
-
-    //getByText checkpoint
-
-    await expect(await page.getByText("Monika Srivastava")).toBeVisible();
-
+    const check = await page.getByAltText("Selenium Online Training");
+    await expect(check).toBeVisible();
     
 
+})
+
+////h1[normalize-space()='Check Box']
+
+test('Checking textboxes', async ({page})=>{
 
 
+    await page.goto('https://demoqa.com/books');
+
+    await page.waitForTimeout(2000);
+    
+    const check = await page.getByText("Git Pocket Guide");
+    await expect.soft(check).toBeVisible();
+    
 
 })
+
+
+test('Checking getByTitle', async ({page})=>{
+
+
+    await page.goto('https://demoqa.com/text-box');
+
+    await page.waitForTimeout(2000);
+    
+    const check = await page.getByTitle("Ad.Plus Advertising");
+    await expect.soft(check).toBeVisible();
+    
+
+})
+
+
+test('Checking Placeholder', async ({ page }) => {
+        await page.goto('https://demoqa.com/text-box');
+        const check =  page.getByPlaceholder('name@example.com');
+        await expect(check).toBeVisible();
+    });
