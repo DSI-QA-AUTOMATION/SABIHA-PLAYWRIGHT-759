@@ -7,7 +7,7 @@ test('Built_in_Locators', async ({page})=>{
 
     await page.goto('https://demoqa.com');
 
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(3000);
     //altText
     const check = await page.getByAltText("Selenium Online Training");
     await expect(check).toBeVisible();
