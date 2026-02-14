@@ -1,0 +1,22 @@
+{
+  "validUser": {
+    "fullName": "John Doe",
+    "email": "john.doe@xample.com",
+    "currentAddress": "123 Main Street, Apartment 4B",
+    "permanentAddress": "456 Oak Avenue, House 12"
+  },
+  "tableUser": {
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "email": "jane.smith@xample.com",
+    "age": "28",
+    "salary": "75000",
+    "department": "Engineering"
+  },
+  "invalidUser": {
+    "fullName": "",
+    "email": "invalid-email",
+    "currentAddress": "",
+    "permanentAddress": ""
+  }
+}

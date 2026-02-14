@@ -1,0 +1,8 @@
+<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="0" time="24.313468">
+<testsuite name="interactions\dragAndDrop.spec.js" timestamp="2026-02-14T07:18:02.071Z" hostname="chromium" tests="2" failures="0" skipped="0" time="21.055" errors="0">
+<testcase name="Drag and Drop Tests › TC-14: Drag and drop element successfully" classname="interactions\dragAndDrop.spec.js" time="11.45">
+</testcase>
+<testcase name="Drag and Drop Tests › Verify droppable area text changes after drop" classname="interactions\dragAndDrop.spec.js" time="9.605">
+</testcase>
+</testsuite>
+</testsuites>

@@ -1,0 +1,18 @@
+{
+  "form1": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john@example.com",
+    "gender": "Male",
+    "mobile": "9876543210",
+    "address": "123 Test Street, Test City"
+  },
+  "form2": {
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "email": "jane@example.com",
+    "gender": "Female",
+    "mobile": "9123456789",
+    "address": "456 Demo Avenue, Demo Town"
+  }
+}
