@@ -1,9 +1,10 @@
 # Playwright
 node_modules/
 /test-results/
-/playwright-report/
+/reports/
 /blob-report/
 /playwright/.cache/
 
 # Playwright
 /playwright/.auth/
+demoqa-playwright-assignment/
