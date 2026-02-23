@@ -19,7 +19,7 @@ class HomePage extends BasePage {
 
   async open() {
     await this.navigate('/');
-    await this.closeAds();
+    //await this.closeAds();
   }
 
   async clickCategory(categoryName) {

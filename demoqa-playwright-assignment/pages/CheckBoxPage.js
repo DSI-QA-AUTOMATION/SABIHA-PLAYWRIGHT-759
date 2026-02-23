@@ -4,7 +4,7 @@ class CheckBoxPage extends BasePage {
   constructor(page) {
     super(page);
     
-    this.expandAllButton = 'button[title="Expand all"]';
+    this.expandAllButton = '.rc-tree-switcher.rc-tree-switcher_close';
     this.collapseAllButton = 'button[title="Collapse all"]';
     this.homeToggle = '.rct-icon-expand-close';
     this.checkboxLabel = '.rct-title';
@@ -19,6 +19,10 @@ class CheckBoxPage extends BasePage {
   async expandAll() {
     await this.click(this.expandAllButton);
     await this.waitForTimeout(500);
+
+    for (let i = 1; i < 3; i++) {
+       await this.click(this.expandAllButton);
+}
   }
 
   async collapseAll() {
@@ -26,7 +30,7 @@ class CheckBoxPage extends BasePage {
   }
 
   async selectCheckboxByLabel(label) {
-    const checkbox = `//span[@class='rct-title'][contains(text(),'${label}')]`;
+    const checkbox = `span[aria-label='Select ${label}']`;
     await this.scrollToElement(checkbox);
     await this.click(checkbox);
   }

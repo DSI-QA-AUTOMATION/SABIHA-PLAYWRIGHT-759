@@ -1,5 +1,5 @@
 const BasePage = require('./base/BasePage');
-const path = require('path');
+
 const fs = require('fs');
 
 class UploadDownloadPage extends BasePage {
@@ -8,37 +8,43 @@ class UploadDownloadPage extends BasePage {
     
     
 
-    this.uploadFileInput = "#uploadFile";
-    this.uploadedFilePathDisplay = "#uploadedFilePath";
+    this.downloadButton = '#downloadButton';
+    this.uploadInput = '#uploadFile';
+    this.uploadedFilePath = '#uploadedFilePath';
   }
 
   async open() {
     await this.navigate('https://demoqa.com/upload-download');
-    //await this.closeAds();
+    
   }
 
-  async downloadFile() {
+    async clickDownloadButton() {
     const [download] = await Promise.all([
       this.page.waitForEvent('download'),
       this.click(this.downloadButton)
     ]);
-    
-    const filePath = await download.path();
-    const suggestedFilename = download.suggestedFilename();
-    
-    return {
-      download,
-      filePath,
-      suggestedFilename
-    };
+    return download;
   }
-  async uploadFile(page, filePath) {
-        await page.locator(this.uploadFileInput).setInputFiles(filePath);
-    }
 
-    async verifyUploadedFile(page, expectedFileName) {
-        await expect(page.locator(this.uploadedFilePathDisplay)).toContainText(expectedFileName);
-    }
+  async getDownloadPath() {
+    const download = await this.clickDownloadButton();
+    const path = await download.path();
+    return path;
+  }
+
+  async uploadFile(filePath) {
+    // Use the page helper to set input files (uploadInput is a selector string)
+    await this.page.setInputFiles(this.uploadInput, filePath);
+  }
+
+  async getUploadedFilePath() {
+    return await this.getText(this.uploadedFilePath);
+  }
+
+  async verifyFileUploaded(fileName) {
+    const uploadedPath = await this.getUploadedFilePath();
+    return uploadedPath.includes(fileName);
+  }
 
 }
 

@@ -32,7 +32,7 @@ class PracticeFormPage extends BasePage {
 
   async open() {
     await this.navigate('https://demoqa.com/automation-practice-form');
-    //await this.closeAds();
+    
   }
 
   async fillBasicInfo(formData) {

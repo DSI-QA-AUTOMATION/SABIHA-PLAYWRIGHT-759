@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "C:\\Users\\Hp\\Desktop\\SABIHA-PLAYWRIGHT-759\\playwright.config.ts",
-    "rootDir": "C:/Users/Hp/Desktop/SABIHA-PLAYWRIGHT-759/demoqa-playwright-assignment/tests",
+    "configFile": "C:\\Users\\DSi\\Desktop\\SABIHA-PLAYWRIGHT-759\\playwright.config.ts",
+    "rootDir": "C:/Users/DSi/Desktop/SABIHA-PLAYWRIGHT-759/demoqa-playwright-assignment/tests",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -16,7 +16,7 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "C:/Users/Hp/Desktop/SABIHA-PLAYWRIGHT-759/reports/test-results",
+        "outputDir": "C:/Users/DSi/Desktop/SABIHA-PLAYWRIGHT-759/reports/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -24,7 +24,7 @@
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "C:/Users/Hp/Desktop/SABIHA-PLAYWRIGHT-759/demoqa-playwright-assignment/tests",
+        "testDir": "C:/Users/DSi/Desktop/SABIHA-PLAYWRIGHT-759/demoqa-playwright-assignment/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -32,7 +32,7 @@
         "timeout": 60000
       },
       {
-        "outputDir": "C:/Users/Hp/Desktop/SABIHA-PLAYWRIGHT-759/reports/test-results",
+        "outputDir": "C:/Users/DSi/Desktop/SABIHA-PLAYWRIGHT-759/reports/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -40,7 +40,7 @@
         },
         "id": "firefox",
         "name": "firefox",
-        "testDir": "C:/Users/Hp/Desktop/SABIHA-PLAYWRIGHT-759/demoqa-playwright-assignment/tests",
+        "testDir": "C:/Users/DSi/Desktop/SABIHA-PLAYWRIGHT-759/demoqa-playwright-assignment/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -48,7 +48,7 @@
         "timeout": 60000
       },
       {
-        "outputDir": "C:/Users/Hp/Desktop/SABIHA-PLAYWRIGHT-759/reports/test-results",
+        "outputDir": "C:/Users/DSi/Desktop/SABIHA-PLAYWRIGHT-759/reports/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -56,7 +56,7 @@
         },
         "id": "webkit",
         "name": "webkit",
-        "testDir": "C:/Users/Hp/Desktop/SABIHA-PLAYWRIGHT-759/demoqa-playwright-assignment/tests",
+        "testDir": "C:/Users/DSi/Desktop/SABIHA-PLAYWRIGHT-759/demoqa-playwright-assignment/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -119,7 +119,7 @@
           "specs": [
             {
               "title": "TC-14: Drag and drop element successfully",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -132,18 +132,62 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 11450,
-                      "errors": [],
-                      "stdout": [],
+                      "status": "failed",
+                      "duration": 7964,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n    at C:\\Users\\DSi\\Desktop\\SABIHA-PLAYWRIGHT-759\\demoqa-playwright-assignment\\tests\\interactions\\dragAndDrop.spec.js:15:23",
+                        "location": {
+                          "file": "C:\\Users\\DSi\\Desktop\\SABIHA-PLAYWRIGHT-759\\demoqa-playwright-assignment\\tests\\interactions\\dragAndDrop.spec.js",
+                          "column": 23,
+                          "line": 15
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 13 |\u001b[39m     \n \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m isDropped \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m interactionsPage\u001b[33m.\u001b[39mverifyElementDropped()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m     expect(isDropped)\u001b[33m.\u001b[39mtoBeTruthy()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 16 |\u001b[39m     \n \u001b[90m 17 |\u001b[39m     \u001b[36mconst\u001b[39m text \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m interactionsPage\u001b[33m.\u001b[39mgetDroppableText()\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m     expect(text)\u001b[33m.\u001b[39mtoBe(\u001b[32m'Dropped!'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\DSi\\Desktop\\SABIHA-PLAYWRIGHT-759\\demoqa-playwright-assignment\\tests\\interactions\\dragAndDrop.spec.js",
+                            "column": 23,
+                            "line": 15
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n\n\u001b[0m \u001b[90m 13 |\u001b[39m     \n \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m isDropped \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m interactionsPage\u001b[33m.\u001b[39mverifyElementDropped()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m     expect(isDropped)\u001b[33m.\u001b[39mtoBeTruthy()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 16 |\u001b[39m     \n \u001b[90m 17 |\u001b[39m     \u001b[36mconst\u001b[39m text \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m interactionsPage\u001b[33m.\u001b[39mgetDroppableText()\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m     expect(text)\u001b[33m.\u001b[39mtoBe(\u001b[32m'Dropped!'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\DSi\\Desktop\\SABIHA-PLAYWRIGHT-759\\demoqa-playwright-assignment\\tests\\interactions\\dragAndDrop.spec.js:15:23\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "Droppable text after drop: Drop Here\n"
+                        }
+                      ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-14T07:18:04.642Z",
+                      "startTime": "2026-02-23T11:33:03.321Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\DSi\\Desktop\\SABIHA-PLAYWRIGHT-759\\reports\\test-results\\interactions-dragAndDrop-D-d8222-d-drop-element-successfully-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\DSi\\Desktop\\SABIHA-PLAYWRIGHT-759\\reports\\test-results\\interactions-dragAndDrop-D-d8222-d-drop-element-successfully-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\DSi\\Desktop\\SABIHA-PLAYWRIGHT-759\\reports\\test-results\\interactions-dragAndDrop-D-d8222-d-drop-element-successfully-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\DSi\\Desktop\\SABIHA-PLAYWRIGHT-759\\demoqa-playwright-assignment\\tests\\interactions\\dragAndDrop.spec.js",
+                        "column": 23,
+                        "line": 15
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "71df19d46ce22a83fa01-f88372aa85a98a57ce3d",
@@ -164,20 +208,20 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 9605,
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-14T07:18:16.382Z",
+                      "startTime": "2026-02-23T11:33:11.659Z",
                       "annotations": [],
                       "attachments": []
                     }
                   ],
-                  "status": "expected"
+                  "status": "skipped"
                 }
               ],
               "id": "71df19d46ce22a83fa01-f80d5687cb1062610c6a",
@@ -192,11 +236,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-02-14T07:18:01.981Z",
-    "duration": 24313.468,
-    "expected": 2,
-    "skipped": 0,
-    "unexpected": 0,
+    "startTime": "2026-02-23T11:33:01.857Z",
+    "duration": 9900.809000000001,
+    "expected": 0,
+    "skipped": 1,
+    "unexpected": 1,
     "flaky": 0
   }
 }

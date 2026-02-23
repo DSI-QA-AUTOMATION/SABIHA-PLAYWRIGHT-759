@@ -6,8 +6,8 @@ class WebTablesPage extends BasePage {
     
     this.addButton = '#addNewRecordButton';
     this.searchBox = '#searchBox';
-    this.table = '.rt-table';
-    this.tableRows = '.rt-tbody .rt-tr-group';
+    this.table = 'table';
+    this.tableRows = 'tbody tr';
     
     this.registrationForm = '#registration-form-modal';
     this.firstNameInput = '#firstName';
@@ -24,7 +24,7 @@ class WebTablesPage extends BasePage {
 
   async open() {
     await this.navigate('https://demoqa.com/webtables');
-    //await this.closeAds();
+    
   }
 
   async clickAdd() {
@@ -62,7 +62,7 @@ class WebTablesPage extends BasePage {
     const data = [];
     
     for (const row of rows) {
-      const cells = await row.locator('.rt-td').all();
+      const cells = await row.locator('td').all();
       if (cells.length > 0) {
         const firstName = await cells[0].textContent();
         if (firstName && firstName.trim() !== '') {

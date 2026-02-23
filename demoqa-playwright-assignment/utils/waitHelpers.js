@@ -19,18 +19,7 @@ class WaitHelpers {
     await page.waitForSelector(`text=${text}`, { timeout });
   }
 
-  static async waitForCondition(condition, timeout = 10000, interval = 500) {
-    const startTime = Date.now();
-    
-    while (Date.now() - startTime < timeout) {
-      if (await condition()) {
-        return true;
-      }
-      await this.sleep(interval);
-    }
-    
-    throw new Error(`Condition not met within ${timeout}ms`);
-  }
+ 
 
   static async waitForFileDownload(page, timeout = 30000) {
     return await page.waitForEvent('download', { timeout });

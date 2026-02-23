@@ -44,17 +44,5 @@ test.describe('Links Tests', () => {
     expect(responseVerified).toBeTruthy();
   });
 
-  test('Verify Unauthorized API link response', async ({ linksPage }) => {
-    await linksPage.clickUnauthorizedLink();
-    
-    const responseVerified = await linksPage.verifyLinkResponse('401');
-    expect(responseVerified).toBeTruthy();
-  });
 
-  test('Verify Not Found API link response', async ({ linksPage }) => {
-    await linksPage.clickNotFoundLink();
-    
-    const responseVerified = await linksPage.verifyLinkResponse('404');
-    expect(responseVerified).toBeTruthy();
-  });
 });

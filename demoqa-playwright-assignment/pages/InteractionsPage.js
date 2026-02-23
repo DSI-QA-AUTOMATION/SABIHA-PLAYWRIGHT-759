@@ -39,7 +39,7 @@ class InteractionsPage extends BasePage {
 
   async dragAndDropElement() {
     await this.dragAndDrop(this.draggableElement, this.droppableTarget);
-    await this.waitForTimeout(500);
+    await this.waitForTimeout(5000);
   }
 
   async getDroppableText() {
@@ -48,6 +48,7 @@ class InteractionsPage extends BasePage {
 
   async verifyElementDropped() {
     const text = await this.getDroppableText();
+    console.log('Droppable text after drop:', text);
     return text === 'Dropped!';
   }
 

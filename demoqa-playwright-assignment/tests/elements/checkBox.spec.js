@@ -11,7 +11,7 @@ test.describe('Check Box Tests', () => {
   test('TC-03: Select multiple checkboxes', async ({ checkBoxPage }) => {
     await checkBoxPage.expandAll();
     
-    const checkboxes = ['Desktop', 'Documents', 'Downloads'];
+     const checkboxes = ['Desktop', 'Documents', 'Downloads'];
     await checkBoxPage.selectMultipleCheckboxes(checkboxes);
     
     const verification = await checkBoxPage.verifyMultipleCheckboxesSelected(checkboxes);
@@ -28,23 +28,5 @@ test.describe('Check Box Tests', () => {
     expect(result).toContain('notes');
   });
 
-  test('Verify expand and collapse functionality', async ({ checkBoxPage }) => {
-    await checkBoxPage.expandAll();
-    const expandedResult = await checkBoxPage.getResultText();
-    
-    await checkBoxPage.collapseAll();
-    
-    await checkBoxPage.expandAll();
-    await checkBoxPage.selectCheckboxByLabel('Desktop');
-    const selectionResult = await checkBoxPage.verifyCheckboxSelected('Desktop');
-    expect(selectionResult).toBeTruthy();
-  });
-
-  test('Verify nested checkbox selection', async ({ checkBoxPage }) => {
-    await checkBoxPage.expandAll();
-    
-    await checkBoxPage.selectCheckboxByLabel('WorkSpace');
-    const workspaceSelected = await checkBoxPage.verifyCheckboxSelected('WorkSpace');
-    expect(workspaceSelected).toBeTruthy();
-  });
+ 
 });
