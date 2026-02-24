@@ -92,25 +92,9 @@ class InteractionsPage extends BasePage {
     return classList.includes('active');
   }
 
-  async resizeBox(deltaX, deltaY) {
-    const handle = await this.page.locator(this.resizableHandle);
-    const box = await handle.boundingBox();
-    
-    await this.page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
-    await this.page.mouse.down();
-    await this.page.mouse.move(box.x + box.width / 2 + deltaX, box.y + box.height / 2 + deltaY);
-    await this.page.mouse.up();
-    await this.waitForTimeout(500);
-  }
+  
 
-  async getBoxDimensions() {
-    const box = await this.page.locator(this.resizableBox);
-    const boundingBox = await box.boundingBox();
-    return {
-      width: boundingBox.width,
-      height: boundingBox.height
-    };
-  }
+
 }
 
 module.exports = InteractionsPage;

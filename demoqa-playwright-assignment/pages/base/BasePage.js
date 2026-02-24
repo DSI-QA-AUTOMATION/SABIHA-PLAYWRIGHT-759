@@ -73,8 +73,8 @@ class BasePage {
     await this.page.keyboard.press(key);
   }
 
-  async dragAndDrop(sourceSelector, targetSelector) {
-    await this.page.dragAndDrop(sourceSelector, targetSelector);
+ async dragAndDrop(sourceSelector, targetSelector) {
+    await this.page.locator(sourceSelector).dragTo(this.page.locator(targetSelector));
   }
 
   async switchToFrame(frameSelector) {

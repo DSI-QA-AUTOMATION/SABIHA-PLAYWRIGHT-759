@@ -18,7 +18,7 @@ class HomePage extends BasePage {
   }
 
   async open() {
-    await this.navigate('/');
+    await this.navigate('https://demoqa.com/');
     //await this.closeAds();
   }
 

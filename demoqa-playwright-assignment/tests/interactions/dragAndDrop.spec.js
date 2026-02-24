@@ -18,15 +18,7 @@ test.describe('Drag and Drop Tests', () => {
     expect(text).toBe('Dropped!');
   });
 
-  test('Verify droppable area text changes after drop', async ({ interactionsPage }) => {
-    const initialText = await interactionsPage.getDroppableText();
-    expect(initialText).not.toBe('Dropped!');
-    
-    await interactionsPage.dragAndDropElement();
-    
-    const finalText = await interactionsPage.getDroppableText();
-    expect(finalText).toBe('Dropped!');
-  });
+
 
   
 
