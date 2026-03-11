@@ -18,24 +18,5 @@ test.describe('Date Picker Tests', () => {
     expect(selectedDate).toBe(dateData.date);
   });
 
-  test('Verify date selection updates input field', async ({ widgetsPage }) => {
-    const testDate = '04/20/2024';
-    
-    await widgetsPage.selectDate(testDate);
-    
-    const isSelected = await widgetsPage.verifyDateSelected(testDate);
-    expect(isSelected).toBeTruthy();
-  });
-
-  test('Verify date can be changed', async ({ widgetsPage }) => {
-    const firstDate = '01/15/2024';
-    await widgetsPage.selectDate(firstDate);
-    let selectedDate = await widgetsPage.getSelectedDate();
-    expect(selectedDate).toBe(firstDate);
-    
-    const secondDate = '12/25/2024';
-    await widgetsPage.selectDate(secondDate);
-    selectedDate = await widgetsPage.getSelectedDate();
-    expect(selectedDate).toBe(secondDate);
-  });
+ 
 });

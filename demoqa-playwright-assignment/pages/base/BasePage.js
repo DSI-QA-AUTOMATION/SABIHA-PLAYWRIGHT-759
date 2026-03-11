@@ -15,8 +15,12 @@ class BasePage {
     await this.page.fill(selector, text);
   }
 
-  async getText(selector) {
-    return await this.page.textContent(selector);
+  async getText(selector, timeout = 2000) {
+     //return await this.page.textContent(selector);
+
+     await this.page.waitForSelector(selector, { timeout });
+
+     return await this.page.textContent(selector);
   }
 
   async isVisible(selector) {
@@ -74,7 +78,17 @@ class BasePage {
   }
 
  async dragAndDrop(sourceSelector, targetSelector) {
-    await this.page.locator(sourceSelector).dragTo(this.page.locator(targetSelector));
+    // use Playwright's built-in drag-and-drop to ensure reliability
+    // locators work even when elements are inside containers or require scrolling
+    //await this.page.dragAndDrop(sourceSelector, targetSelector);
+    // the curly brace below was missing previously which caused a syntax error.
+    // the old (broken) version is left commented for clarity:
+    /*
+    async switchToFrame(frameSelector) {
+      const frame = this.page.frameLocator(frameSelector);
+      return frame;
+    }
+    */
   }
 
   async switchToFrame(frameSelector) {

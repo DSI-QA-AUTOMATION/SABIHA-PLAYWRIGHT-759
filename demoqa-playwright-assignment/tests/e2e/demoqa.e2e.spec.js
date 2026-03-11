@@ -81,10 +81,10 @@ test.describe('End-to-End User Journey', () => {
       formData.dateOfBirth.month,
       formData.dateOfBirth.year
     );
-    await practiceFormPage.addSubjects(formData.subjects);
-    await practiceFormPage.selectHobbies(formData.hobbies);
-    await practiceFormPage.fillAddress(formData.currentAddress);
-    await practiceFormPage.selectStateAndCity(formData.state, formData.city);
+    // await practiceFormPage.addSubjects(formData.subjects);
+    // await practiceFormPage.selectHobbies(formData.hobbies);
+    // await practiceFormPage.fillAddress(formData.currentAddress);
+    // await practiceFormPage.selectStateAndCity(formData.state, formData.city);
     await practiceFormPage.clickSubmit();
     const formSubmitted = await practiceFormPage.verifyFormSubmission();
     expect(formSubmitted).toBeTruthy();

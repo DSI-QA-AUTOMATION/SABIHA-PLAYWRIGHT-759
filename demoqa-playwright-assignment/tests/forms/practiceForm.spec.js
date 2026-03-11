@@ -7,6 +7,7 @@ test.describe.configure({ mode: 'serial' });
 test.describe('Practice Form Tests', () => {
   test.beforeEach(async ({ practiceFormPage }) => {
     await practiceFormPage.open();
+    
   });
 
   test('TC-09: Submit complete practice form', async ({ practiceFormPage, testData }) => {
@@ -15,6 +16,7 @@ test.describe('Practice Form Tests', () => {
     console.log('Form Data:', formData);
     
    await practiceFormPage.submitCompleteForm(formData);
+   await practiceFormPage.clickSubmit1();
     const isSubmitted = await practiceFormPage.verifyFormSubmission();
     expect(isSubmitted).toBeTruthy();
   });

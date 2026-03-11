@@ -1,3 +1,4 @@
+const { expect } = require('@playwright/test');
 const BasePage = require('./base/BasePage');
 
 class InteractionsPage extends BasePage {
@@ -7,6 +8,8 @@ class InteractionsPage extends BasePage {
     this.draggableElement = '#draggable';
     this.droppableTarget = '#droppable';
     this.droppableText = '#droppable p';
+
+    this.containerTab = '#simpleDropContainer';
     
     this.sortableTab = '#demo-tab-list';
     this.sortableItems = '.vertical-list-container .list-group-item';
@@ -38,12 +41,49 @@ class InteractionsPage extends BasePage {
   }
 
   async dragAndDropElement() {
-    await this.dragAndDrop(this.draggableElement, this.droppableTarget);
-    await this.waitForTimeout(5000);
+    // ensure that the simple droppable example is visible before attempting to drag
+    const simpleTabPane = this.page.locator('#droppableExample-tabpane-simple');
+    
+const source = this.page.locator('#draggable');
+const target = this.page.locator('#droppable').first();
+
+// Wait for elements
+await source.waitFor({ state: 'visible' });
+await target.waitFor({ state: 'visible' });
+
+// Scroll into view (VERY IMPORTANT)
+await source.scrollIntoViewIfNeeded();
+await target.scrollIntoViewIfNeeded();
+
+// Get bounding boxes
+const sourceBox = await source.boundingBox();
+const targetBox = await target.boundingBox();
+
+// Move mouse to source
+await this.page.mouse.move(
+  sourceBox.x + sourceBox.width / 2,
+  sourceBox.y + sourceBox.height / 2
+);
+
+// Mouse down (pick element)
+await this.page.mouse.down();
+
+// Move mouse to target (with steps → very important)
+await this.page.mouse.move(
+  targetBox.x + targetBox.width / 2,
+  targetBox.y + targetBox.height / 2,
+  { steps: 25 }
+);
+
+// Drop element
+await this.page.mouse.up();
   }
 
   async getDroppableText() {
-    return await this.getText(this.droppableText);
+    //return await this.getText(this.droppableText);
+    await this.page.waitForSelector(this.droppableText, { timeout: 5000 });
+
+    return await this.page.textContent(this.droppableText);
   }
 
   async verifyElementDropped() {
@@ -52,47 +92,16 @@ class InteractionsPage extends BasePage {
     return text === 'Dropped!';
   }
 
-  async getDroppableBackgroundColor() {
-    const element = await this.page.locator(this.droppableTarget);
-    return await element.evaluate(el => window.getComputedStyle(el).backgroundColor);
-  }
 
-  async verifyDroppableColorChanged() {
-    const bgColor = await this.getDroppableBackgroundColor();
-    return bgColor === 'rgb(70, 130, 180)';
-  }
+
 
   async dragElementTo(sourceSelector, targetSelector) {
     await this.dragAndDrop(sourceSelector, targetSelector);
   }
 
-  async sortItems(fromIndex, toIndex) {
-    const items = await this.page.locator(this.sortableItems).all();
-    const sourceItem = items[fromIndex];
-    const targetItem = items[toIndex];
-    
-    await sourceItem.dragTo(targetItem);
-    await this.waitForTimeout(500);
-  }
+ 
 
-  async selectItem(index) {
-    const items = await this.page.locator(this.selectableItems).all();
-    await items[index].click();
-  }
 
-  async selectMultipleItems(indices) {
-    for (const index of indices) {
-      await this.selectItem(index);
-    }
-  }
-
-  async isItemSelected(index) {
-    const items = await this.page.locator(this.selectableItems).all();
-    const classList = await items[index].getAttribute('class');
-    return classList.includes('active');
-  }
-
-  
 
 
 }

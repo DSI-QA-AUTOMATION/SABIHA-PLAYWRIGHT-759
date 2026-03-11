@@ -14,6 +14,7 @@ class WidgetsPage extends BasePage {
 
   async openTooltips() {
     await this.navigate('https://demoqa.com/tool-tips');
+    await this.waitForTimeout(3000);
     //await this.closeAds();
   }
 
@@ -24,12 +25,12 @@ class WidgetsPage extends BasePage {
 
   async hoverTooltipButton() {
     await this.hover(this.tooltipButton);
-    await this.waitForTimeout(500);
+    await this.waitForTimeout(2000);
   }
 
   async hoverTooltipTextField() {
     await this.hover(this.tooltipTextField);
-    await this.waitForTimeout(500);
+    await this.waitForTimeout(1000);
   }
 
   async getTooltipText() {
